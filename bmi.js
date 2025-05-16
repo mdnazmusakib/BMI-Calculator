@@ -56,3 +56,9 @@ calcBtn.addEventListener('click', () => {
   resultDiv.classList.remove('hidden', 'text-red-600');
   resultDiv.classList.add('text-gray-800');
 });
+
+function showError(message) {
+  resultDiv.textContent = message;
+  resultDiv.classList.remove('hidden', 'text-gray-800');
+  resultDiv.classList.add('text-red-600');
+}

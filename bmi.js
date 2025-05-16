@@ -43,6 +43,16 @@ calcBtn.addEventListener('click', () => {
     showError("Please enter a valid weight.");
     return;
   }
-  const bmi = (weight / (heightMeters * heightMeters)).toFixed(2);
+  const bmi = (weight / (heightMeters * heightMeters)).toFixed(1);
 //   console.log(bmi);
+  let category = '';
+  if (bmi < 18.5) category = 'Underweight';
+  else if (bmi < 24.9) category = 'Normal weight';
+  else if (bmi < 29.9) category = 'Overweight';
+  else category = 'Obesity';
+//   console.log(category);
+
+  resultDiv.innerHTML = `Your BMI is <span class="text-indigo-600">${bmi}</span> (${category})`;
+  resultDiv.classList.remove('hidden', 'text-red-600');
+  resultDiv.classList.add('text-gray-800');
 });
